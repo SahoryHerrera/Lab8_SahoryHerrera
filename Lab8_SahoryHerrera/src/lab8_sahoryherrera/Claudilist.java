@@ -99,7 +99,7 @@ public class Claudilist {
                    Canciones.add(new Peliculas(Nombre, puntuacion, ano, artista,album));
                     
                 }
-                System.out.println("Las canciones" + Canciones);
+                System.out.println("Las Peliculas" + Canciones);
             } catch (Exception e) {
             }
             sc.close();
@@ -125,7 +125,7 @@ public class Claudilist {
                 br = new BufferedReader(fr);
                 String Linea;
                 // tf_universo.setText("");
-                Texto = "Canciones de la PlayList: \n";
+                Texto = "Los programas de la claudilist: \n";
                 while ((Linea = br.readLine()) != null) {
                     // System.out.println(Linea);
                     Texto += Linea;

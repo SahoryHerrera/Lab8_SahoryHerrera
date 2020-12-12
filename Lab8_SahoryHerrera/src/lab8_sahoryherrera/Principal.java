@@ -598,7 +598,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Strawberry Blossom", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("My ClaudiList.");
+        jLabel6.setText("My ClaudiList");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
