@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.*;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -21,6 +22,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Principal extends javax.swing.JFrame {
 
+    String hora, minutos, segundos;
+    Calendar calendario;
+
     public static boolean band = false;
     int seg;
     Thread tiempo = new Thread() {
@@ -31,7 +35,7 @@ public class Principal extends javax.swing.JFrame {
                     Pg_canciones.setValue(seg);
                     tiempo.sleep(40);
                 }//finfor
-                JOptionPane.showMessageDialog(jd_crearCancion, "Claudilist Creado");
+                JOptionPane.showMessageDialog(jd_crearPrograma, "Claudilist Creado");
                 tf_nombreUniverso.setText("");
                 band = true;
             } catch (Exception e) {
@@ -40,15 +44,20 @@ public class Principal extends javax.swing.JFrame {
         }
     };
 
-    Thread tiempo2 = new Thread() {
+    Thread tiempo1 = new Thread() {
         public void run() {
             band = false;
             try {
                 for (seg = 1; seg <= 100; seg++) {
                     Pg_canciones1.setValue(seg);
-                    tiempo2.sleep(40);
+                    tiempo.sleep(40);
                 }//finfor
-                JOptionPane.showMessageDialog(jd_crearCancion, "Programa creado Exitosamente");
+                JOptionPane.showMessageDialog(jd_crearPrograma, "Programa Creado");
+                tf_raza.setText("");
+                tf_artista.setText("");
+                tf_album.setText("");
+                js_puntuacion.setValue(1);
+                js_ano.setValue(1);
 
                 band = true;
             } catch (Exception e) {
@@ -62,6 +71,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+
     }
 
     /**
@@ -84,7 +94,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         Pg_canciones = new javax.swing.JProgressBar();
-        jd_crearCancion = new javax.swing.JDialog();
+        jd_crearPrograma = new javax.swing.JDialog();
         tf_raza = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -309,34 +319,34 @@ public class Principal extends javax.swing.JFrame {
         Pg_canciones1.setBackground(new java.awt.Color(153, 255, 153));
         Pg_canciones1.setForeground(new java.awt.Color(0, 153, 153));
 
-        javax.swing.GroupLayout jd_crearCancionLayout = new javax.swing.GroupLayout(jd_crearCancion.getContentPane());
-        jd_crearCancion.getContentPane().setLayout(jd_crearCancionLayout);
-        jd_crearCancionLayout.setHorizontalGroup(
-            jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jd_crearProgramaLayout = new javax.swing.GroupLayout(jd_crearPrograma.getContentPane());
+        jd_crearPrograma.getContentPane().setLayout(jd_crearProgramaLayout);
+        jd_crearProgramaLayout.setHorizontalGroup(
+            jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jd_crearCancionLayout.createSequentialGroup()
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_crearCancionLayout.createSequentialGroup()
+            .addGroup(jd_crearProgramaLayout.createSequentialGroup()
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_crearProgramaLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(jLabel14))
                         .addGap(42, 42, 42))
-                    .addGroup(jd_crearCancionLayout.createSequentialGroup()
+                    .addGroup(jd_crearProgramaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel22)
                         .addGap(32, 32, 32)))
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearCancionLayout.createSequentialGroup()
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearProgramaLayout.createSequentialGroup()
                         .addComponent(Pg_canciones1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(93, 93, 93))
-                    .addGroup(jd_crearCancionLayout.createSequentialGroup()
-                        .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jd_crearProgramaLayout.createSequentialGroup()
+                        .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(js_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(tf_artista, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(js_puntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,32 +354,32 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(tf_album, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(97, Short.MAX_VALUE))))
         );
-        jd_crearCancionLayout.setVerticalGroup(
-            jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_crearCancionLayout.createSequentialGroup()
+        jd_crearProgramaLayout.setVerticalGroup(
+            jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearProgramaLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tf_raza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(js_puntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(js_ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(tf_artista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(tf_album, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(jd_crearCancionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jd_crearProgramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel22)
                     .addComponent(Pg_canciones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -663,18 +673,18 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(109, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -686,7 +696,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         if (tf_artista.getText() == "" || tf_raza.getText() == "" || (int) js_ano.getValue() == 0 || (int) js_puntuacion.getValue() == 0) {
-            JOptionPane.showMessageDialog(jd_crearCancion, "TODOS LOS CAMPOS SON OBLIGATORIOS");
+            JOptionPane.showMessageDialog(jd_crearPrograma, "TODOS LOS CAMPOS SON OBLIGATORIOS");
         } else {
             String Nombre_Raza = tf_raza.getText();
             int Ki = (int) js_puntuacion.getValue();
@@ -701,14 +711,13 @@ public class Principal extends javax.swing.JFrame {
             jc_Canciones2.setModel(Modelo);
 
 //            JOptionPane.showMessageDialog(jd_crearCancion, "Programa creado Exitosamente");
-            tiempo.start();
-            
-            tf_raza.setText("");
-            tf_artista.setText("");
-            tf_album.setText("");
-            js_puntuacion.setValue(1);
-            js_ano.setValue(1);
+            tiempo1.start();
 
+//            tf_raza.setText("");
+//            tf_artista.setText("");
+//            tf_album.setText("");
+//            js_puntuacion.setValue(1);
+//            js_ano.setValue(1);
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -719,8 +728,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        jd_crearCancion.show();
-        jd_crearCancion.pack();
+        jd_crearPrograma.show();
+        jd_crearPrograma.pack();
         //  jd_crearSer.setModal(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -873,7 +882,7 @@ public class Principal extends javax.swing.JFrame {
                     U.creararchivo(jfc.getSelectedFile().getPath());
                     U.escribirArchivo();
                     PlayListActual = U;
-                    JOptionPane.showMessageDialog(jd_crearCancion, "Se ha Guardado el archivo adecuadamente");
+                    JOptionPane.showMessageDialog(jd_crearPrograma, "Se ha Guardado el archivo adecuadamente");
                 }
 
                 // System.out.println(jfc.getSelectedFile().getPath());
@@ -986,7 +995,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jc_Canciones1;
     private javax.swing.JComboBox<String> jc_Canciones2;
     private javax.swing.JComboBox<String> jc_programas;
-    private javax.swing.JDialog jd_crearCancion;
+    private javax.swing.JDialog jd_crearPrograma;
     private javax.swing.JDialog jd_crearclaudilist;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_modificar;
@@ -1007,4 +1016,5 @@ public class Principal extends javax.swing.JFrame {
     private Claudilist PlayListActual = new Claudilist();
     private Peliculas Cancion;
     private int Pos;
+
 }
